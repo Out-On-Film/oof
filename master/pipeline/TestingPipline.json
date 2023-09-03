@@ -75,6 +75,15 @@
 							},
 							{
 								"source": {
+									"path": "['description']"
+								},
+								"sink": {
+									"name": "Short Description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
 									"path": "['address']"
 								},
 								"sink": {
