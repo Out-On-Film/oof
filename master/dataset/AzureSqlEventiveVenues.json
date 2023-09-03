@@ -19,15 +19,15 @@
 			},
 			{
 				"name": "Venue ID",
-				"type": "nchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "Address",
-				"type": "nchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "Color",
-				"type": "nchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "Use Reserved Seating",
@@ -35,15 +35,15 @@
 			},
 			{
 				"name": "Short Name",
-				"type": "nchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "Short Description",
-				"type": "nchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "Event Bucket",
-				"type": "nchar"
+				"type": "nvarchar"
 			}
 		],
 		"typeProperties": {
