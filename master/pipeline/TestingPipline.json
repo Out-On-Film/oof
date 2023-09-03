@@ -136,11 +136,11 @@
 				]
 			},
 			{
-				"name": "Passes",
+				"name": "Orders",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
-					"timeout": "7.00:00:00",
+					"timeout": "0.12:00:00",
 					"retry": 0,
 					"retryIntervalInSeconds": 30,
 					"secureOutput": false,
@@ -151,8 +151,11 @@
 					"source": {
 						"type": "RestSource",
 						"httpRequestTimeout": "00:01:40",
-						"requestInterval": "00.00:00:00.010",
-						"requestMethod": "GET"
+						"requestInterval": "00.00:00:00.100",
+						"requestMethod": "GET",
+						"paginationRules": {
+							"QueryParameters.{skip}": "RANGE:0:70000:100"
+						}
 					},
 					"sink": {
 						"type": "AzureSqlSink",
@@ -160,7 +163,7 @@
 						"upsertSettings": {
 							"useTempDB": true,
 							"keys": [
-								"ID"
+								"Order Id"
 							]
 						},
 						"sqlWriterUseTableLock": false,
@@ -175,88 +178,16 @@
 									"path": "['id']"
 								},
 								"sink": {
-									"name": "ID",
+									"name": "Order Id",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['name']"
+									"path": "['owner']"
 								},
 								"sink": {
-									"name": "Name",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['event_bucket']"
-								},
-								"sink": {
-									"name": "Event_Bucket",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['person']['id']"
-								},
-								"sink": {
-									"name": "Person.ID",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['person']['name']"
-								},
-								"sink": {
-									"name": "Person.Name",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['person']['email']"
-								},
-								"sink": {
-									"name": "Person.Email",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['pass_bucket']['id']"
-								},
-								"sink": {
-									"name": "Pass_Bucket.ID",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['pass_bucket']['name']"
-								},
-								"sink": {
-									"name": "Pass_Bucket.Name",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['pass_bucket']['code']"
-								},
-								"sink": {
-									"name": "Pass_Bucket.Code",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['order']"
-								},
-								"sink": {
-									"name": "Order_ID",
+									"name": "owner",
 									"type": "String"
 								}
 							},
@@ -265,95 +196,231 @@
 									"path": "['created_at']"
 								},
 								"sink": {
-									"name": "Created_At",
+									"name": "Created At",
 									"type": "DateTime"
 								}
 							},
 							{
 								"source": {
-									"path": "['updated_at']"
+									"path": "['purchase_price']"
 								},
 								"sink": {
-									"name": "Updated_At",
-									"type": "DateTime"
+									"name": "Purchase Price",
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
-									"path": "['is_active']"
+									"path": "['net_price']"
 								},
 								"sink": {
-									"name": "Is_active",
-									"type": "Boolean"
+									"name": "net_price",
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"path": "['pass_subscription']['id']"
+									"path": "['type']"
 								},
 								"sink": {
-									"name": "Pass_Subscriptions.ID",
+									"name": "type",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['pass_subscription']['should_autorenew']"
+									"path": "['success']"
 								},
 								"sink": {
-									"name": "Pass_Subscriptions.should_renew",
+									"name": "success",
 									"type": "Boolean"
 								}
 							},
 							{
 								"source": {
-									"path": "['pass_subscription']['renewal_date']"
+									"path": "['tax_collected']"
 								},
 								"sink": {
-									"name": "Pass_Subscriptions.renewal_date",
-									"type": "DateTime"
+									"name": "tax collected",
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
-									"path": "['pass_subscription']['expired_date']"
+									"path": "['event_bucket']['id']"
 								},
 								"sink": {
-									"name": "Pass_Subscriptions.expired_date",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"path": "['pass_subscription']['status']"
-								},
-								"sink": {
-									"name": "Pass_Subscriptions.status",
+									"name": "Event Bucket ID",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['pass_bucket']['price']"
+									"path": "['person']['id']"
 								},
 								"sink": {
-									"name": "Pass_Bucket.Price"
+									"name": "Person ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['person']['details']['email']"
+								},
+								"sink": {
+									"name": "email",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['origin_location']['ip']"
+								},
+								"sink": {
+									"name": "ip",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['origin_location']['city']"
+								},
+								"sink": {
+									"name": "city",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['origin_location']['continent']"
+								},
+								"sink": {
+									"name": "continent",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['origin_location']['continent_name']"
+								},
+								"sink": {
+									"name": "continent_name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['origin_location']['region']"
+								},
+								"sink": {
+									"name": "region",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['origin_location']['region_code']"
+								},
+								"sink": {
+									"name": "region_code",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['origin_location']['country']"
+								},
+								"sink": {
+									"name": "country",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['origin_location']['country_name']"
+								},
+								"sink": {
+									"name": "country_name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['origin_location']['postal']"
+								},
+								"sink": {
+									"name": "postal",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['origin_location']['latitude']"
+								},
+								"sink": {
+									"name": "latitude",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['origin_location']['longitude']"
+								},
+								"sink": {
+									"name": "longitude",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['origin_location']['asn']"
+								},
+								"sink": {
+									"name": "asn",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['origin_location']['org']"
+								},
+								"sink": {
+									"name": "org",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['summary']"
+								},
+								"sink": {
+									"name": "summary",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['coupon']['id']"
+								},
+								"sink": {
+									"name": "Coupon ID",
+									"type": "String"
 								}
 							}
 						],
-						"collectionReference": "$['passes']",
+						"collectionReference": "$['orders']",
 						"mapComplexValuesToString": false
 					}
 				},
 				"inputs": [
 					{
-						"referenceName": "EventivePasses",
+						"referenceName": "EventiveOrders",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSqlEventivePasses",
+						"referenceName": "AzureSqlEventiveOrders",
 						"type": "DatasetReference"
 					}
 				]
