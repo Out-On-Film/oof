@@ -632,15 +632,6 @@
 							},
 							{
 								"source": {
-									"path": "['pass_bucket']['price']"
-								},
-								"sink": {
-									"name": "Pass_Bucket.Price",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
 									"path": "['order']"
 								},
 								"sink": {
@@ -718,6 +709,14 @@
 								"sink": {
 									"name": "Pass_Subscriptions.status",
 									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['pass_bucket']['price']"
+								},
+								"sink": {
+									"name": "Pass_Bucket.Price"
 								}
 							}
 						],
