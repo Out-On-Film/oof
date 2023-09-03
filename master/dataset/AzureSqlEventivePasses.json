@@ -46,8 +46,8 @@
 			},
 			{
 				"name": "Pass_Bucket.Price",
-				"type": "int",
-				"precision": 10
+				"type": "bigint",
+				"precision": 19
 			},
 			{
 				"name": "Order_ID",
