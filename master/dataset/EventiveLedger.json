@@ -14,7 +14,7 @@
 		"annotations": [],
 		"type": "RestResource",
 		"typeProperties": {
-			"relativeUrl": "ledger/transactions?api_key=dd67a9b5637524a10ef8934566db6abc&limit=1000&skip={skip}"
+			"relativeUrl": "ledger/transactions?api_key=6e7175ca8b439ae6c9eee289e0327074&limit=1000&skip={skip}"
 		},
 		"schema": []
 	},
