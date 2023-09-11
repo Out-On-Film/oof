@@ -1500,47 +1500,11 @@
 							},
 							{
 								"source": {
-									"path": "['short_name']"
-								},
-								"sink": {
-									"name": "Short Name",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['address']"
-								},
-								"sink": {
-									"name": "Address",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
 									"path": "['default_capacity']"
 								},
 								"sink": {
 									"name": "Capacity",
 									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"path": "['color']"
-								},
-								"sink": {
-									"name": "Color",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "['use_reserved_seating']"
-								},
-								"sink": {
-									"name": "Use Reserved Seating",
-									"type": "Boolean"
 								}
 							}
 						],
