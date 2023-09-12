@@ -1,0 +1,98 @@
+{
+	"name": "TestingPipline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Venues",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"Venue ID"
+							]
+						},
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "['id']"
+								},
+								"sink": {
+									"name": "Venue ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['event_bucket']"
+								},
+								"sink": {
+									"name": "Event Bucket",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['name']"
+								},
+								"sink": {
+									"name": "Venue Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['default_capacity']"
+								},
+								"sink": {
+									"name": "Capacity",
+									"type": "Int32"
+								}
+							}
+						],
+						"collectionReference": "$['venues']"
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "EventiveVenues",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlEventiveVenues",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-09-12T00:05:52Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

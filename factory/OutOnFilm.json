@@ -1,0 +1,9 @@
+{
+	"name": "OutOnFilm",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "abd2630d-380a-4dcb-832d-a548e689279a",
+		"tenantId": "e9caa6b2-435f-47c5-9858-76dc1f25e7f1"
+	}
+}

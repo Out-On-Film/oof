@@ -1,0 +1,16 @@
+{
+	"name": "EventiveTickets",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Eventive",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "tickets?api_key=6e7175ca8b439ae6c9eee289e0327074&limit=1000&skip={skip}"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
