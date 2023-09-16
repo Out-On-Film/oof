@@ -506,12 +506,6 @@
 						"referenceName": "SourceDataset_pcs",
 						"type": "DatasetReference"
 					}
-				],
-				"outputs": [
-					{
-						"referenceName": "DestinationDataset_pcs",
-						"type": "DatasetReference"
-					}
 				]
 			}
 		],

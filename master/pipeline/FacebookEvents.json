@@ -1084,12 +1084,6 @@
 						"referenceName": "AzureSqlFBEventsATLFF",
 						"type": "DatasetReference"
 					}
-				],
-				"outputs": [
-					{
-						"referenceName": "FBEventsATLFF",
-						"type": "DatasetReference"
-					}
 				]
 			},
 			{
@@ -1343,12 +1337,6 @@
 				"inputs": [
 					{
 						"referenceName": "AzureSqlFBEventsATLFS",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "FBEventsATLFF",
 						"type": "DatasetReference"
 					}
 				]
@@ -1606,12 +1594,6 @@
 						"referenceName": "AzureSqlFBEventsATLFF",
 						"type": "DatasetReference"
 					}
-				],
-				"outputs": [
-					{
-						"referenceName": "AzureFBMMasterEvents",
-						"type": "DatasetReference"
-					}
 				]
 			},
 			{
@@ -1865,12 +1847,6 @@
 				"inputs": [
 					{
 						"referenceName": "AzureSqlFBEventsATLFS",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "AzureFBMMasterEvents",
 						"type": "DatasetReference"
 					}
 				]

@@ -5,10 +5,6 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"dataset": {
-						"referenceName": "Submissions_Filmfreeway_Films",
-						"type": "DatasetReference"
-					},
 					"name": "SubmissionExcel"
 				}
 			],
@@ -92,8 +88,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     inferDriftedColumnTypes: true,",
-				"     limit: 100,",
-				"     ignoreNoFilesFound: false) ~> SubmissionExcel",
+				"     limit: 100) ~> SubmissionExcel",
 				"SubmissionExcel alterRow(upsertIf({Submission ID}=={Submission ID})) ~> AlterRow1",
 				"AlterRow1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",

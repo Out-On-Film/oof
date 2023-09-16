@@ -123,17 +123,10 @@
 									"name": "Customer Paid",
 									"type": "Double"
 								}
-							},
-							null
+							}
 						]
 					}
 				},
-				"inputs": [
-					{
-						"referenceName": "CoverflyScripts",
-						"type": "DatasetReference"
-					}
-				],
 				"outputs": [
 					{
 						"referenceName": "AzureSqlSUBMISSIONS_COVERFLY_Screenplays",

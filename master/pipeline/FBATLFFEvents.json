@@ -266,12 +266,6 @@
 						"referenceName": "SourceDataset_tgx",
 						"type": "DatasetReference"
 					}
-				],
-				"outputs": [
-					{
-						"referenceName": "DestinationDataset_tgx",
-						"type": "DatasetReference"
-					}
 				]
 			}
 		],
