@@ -1,0 +1,16 @@
+{
+	"name": "DestinationDataset_jab",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "public",
+			"table": "WEBSITE_pages"
+		}
+	}
+}
