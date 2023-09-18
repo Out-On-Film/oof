@@ -1,0 +1,77 @@
+{
+	"name": "SourceDataset_jab",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [
+			{
+				"name": "date",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "hostname",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "screenpageviews",
+				"type": "bigint",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "pagepathplusquerystring",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "bouncerate",
+				"type": "double precision",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "property_id",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "_airbyte_ab_id",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "_airbyte_emitted_at",
+				"type": "timestamp with time zone",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "_airbyte_normalized_at",
+				"type": "timestamp with time zone",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "_airbyte_pages_hashid",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "public",
+			"table": "pages"
+		}
+	}
+}

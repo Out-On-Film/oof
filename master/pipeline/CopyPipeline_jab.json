@@ -1,0 +1,173 @@
+{
+	"name": "CopyPipeline_jab",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_jab",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "public.pages"
+					},
+					{
+						"name": "Destination",
+						"value": "public.WEBSITE_pages"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "date",
+									"type": "String",
+									"physicalType": "text"
+								},
+								"sink": {
+									"name": "date",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "hostname",
+									"type": "String",
+									"physicalType": "text"
+								},
+								"sink": {
+									"name": "hostname",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "screenpageviews",
+									"type": "Int64",
+									"physicalType": "bigint"
+								},
+								"sink": {
+									"name": "screenpageviews",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "pagepathplusquerystring",
+									"type": "String",
+									"physicalType": "text"
+								},
+								"sink": {
+									"name": "pagepathplusquerystring",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "bouncerate",
+									"type": "Double",
+									"physicalType": "double precision"
+								},
+								"sink": {
+									"name": "bouncerate",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "property_id",
+									"type": "String",
+									"physicalType": "text"
+								},
+								"sink": {
+									"name": "property_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_airbyte_ab_id",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "_airbyte_ab_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "_airbyte_emitted_at",
+									"type": "DateTime",
+									"physicalType": "timestamp with time zone"
+								},
+								"sink": {
+									"name": "_airbyte_emitted_at",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "_airbyte_normalized_at",
+									"type": "DateTime",
+									"physicalType": "timestamp with time zone"
+								},
+								"sink": {
+									"name": "_airbyte_normalized_at",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "_airbyte_pages_hashid",
+									"type": "String",
+									"physicalType": "text"
+								},
+								"sink": {
+									"name": "_airbyte_pages_hashid",
+									"type": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_jab",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_jab",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
