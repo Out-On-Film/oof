@@ -1,0 +1,179 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true
+						},
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "_airbyte_pages_hashid",
+									"type": "String",
+									"physicalType": "text"
+								},
+								"sink": {
+									"name": "_airbyte_google_analyticspages_hashid",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "date",
+									"type": "String",
+									"physicalType": "text"
+								},
+								"sink": {
+									"name": "date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hostname",
+									"type": "String",
+									"physicalType": "text"
+								},
+								"sink": {
+									"name": "hostname",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "screenpageviews",
+									"type": "Int64",
+									"physicalType": "bigint"
+								},
+								"sink": {
+									"name": "screenpageviews",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "pagepathplusquerystring",
+									"type": "String",
+									"physicalType": "text"
+								},
+								"sink": {
+									"name": "pagepathplusquerystring",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "bouncerate",
+									"type": "Double",
+									"physicalType": "double precision"
+								},
+								"sink": {
+									"name": "bouncerate",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "property_id",
+									"type": "String",
+									"physicalType": "text"
+								},
+								"sink": {
+									"name": "property_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "_airbyte_ab_id",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "_airbyte_ab_id",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "_airbyte_emitted_at",
+									"type": "DateTime",
+									"physicalType": "timestamp with time zone"
+								},
+								"sink": {
+									"name": "_airbyte_emitted_at",
+									"type": "DateTimeOffset",
+									"physicalType": "datetimeoffset"
+								}
+							},
+							{
+								"source": {
+									"name": "_airbyte_normalized_at",
+									"type": "DateTime",
+									"physicalType": "timestamp with time zone"
+								},
+								"sink": {
+									"name": "_airbyte_normalized_at",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "AzurePostgreSqlTable1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

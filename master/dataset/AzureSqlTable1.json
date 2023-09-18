@@ -1,0 +1,61 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseRAW_ATLFS_DATA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "_airbyte_google_analyticspages_hashid",
+				"type": "varchar"
+			},
+			{
+				"name": "date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "hostname",
+				"type": "nvarchar"
+			},
+			{
+				"name": "screenpageviews",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "pagepathplusquerystring",
+				"type": "nvarchar"
+			},
+			{
+				"name": "bouncerate",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "property_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "_airbyte_ab_id",
+				"type": "varchar"
+			},
+			{
+				"name": "_airbyte_emitted_at",
+				"type": "datetimeoffset",
+				"scale": 7
+			},
+			{
+				"name": "_airbyte_normalized_at",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "_airbyte_dbo",
+			"table": "google_analyticspages_stg"
+		}
+	}
+}
